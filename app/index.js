@@ -1,23 +1,21 @@
-import { restClient } from '@polygon.io/client-js';
-import './index.css'
+import './index.css';
+import { forexAggregates } from './api/polygon';
 
-const rest = restClient(process.env.POLY_API_KEY);
+const main = async () => {
+  try {
+    const result = await forexAggregates();
 
-rest.forex.aggregates("C:EURUSD", 1, "day", "2023-01-01", "2023-04-14").then((data) => {
-  console.log('Response:', data);
-
-  if (data.status === 'OK') {
     const container = document.querySelector('.container');
     if (container) {
 
-      data.results.forEach(((item) => {
-        container.append(JSON.stringify(item))
-      }))
+      result.forEach(((item) => {
+        container.append(JSON.stringify(item));
+      }));
     }
+
+  } catch (e) {
+    console.error('Error:', e);
   }
+};
 
-}).catch(e => {
-  console.error('An error happened:', e);
-});
-
-
+main();
