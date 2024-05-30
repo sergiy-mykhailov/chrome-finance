@@ -1,9 +1,11 @@
 import './index.css';
-import { forexAggregates } from './api/polygon';
+// import { getPairs } from './api/polygon';
+import { getPairs } from './api/alpaca';
 
-const main = async () => {
+const onClick = async () => {
   try {
-    const result = await forexAggregates();
+    const result = await getPairs();
+    console.log('Result:', result);
 
     const container = document.querySelector('.container');
     if (container) {
@@ -12,10 +14,14 @@ const main = async () => {
         container.append(JSON.stringify(item));
       }));
     }
-
   } catch (e) {
     console.error('Error:', e);
   }
+};
+
+const main = () => {
+  const button = document.querySelector('.button');
+  button.addEventListener('click', onClick);
 };
 
 main();
