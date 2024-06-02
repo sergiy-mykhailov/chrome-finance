@@ -2,7 +2,8 @@ import './index.css';
 // import { getPairs } from './api/polygon';
 // import { getPairs } from './api/alpaca';
 // import { getPairs } from './api/oanda';
-import { getPairs } from './api/exchangerates';
+// import { getPairs } from './api/exchangerates';
+import { getPairs } from './api/fcsapi';
 
 const onClick = async () => {
   try {
