@@ -1,6 +1,7 @@
 import './index.css';
 // import { getPairs } from './api/polygon';
-import { getPairs } from './api/alpaca';
+// import { getPairs } from './api/alpaca';
+import { getPairs } from './api/oanda';
 
 const onClick = async () => {
   try {

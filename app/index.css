@@ -3,4 +3,5 @@
     width: 400px;
     background: azure;
     margin: 16px;
+    overflow: auto;
 }

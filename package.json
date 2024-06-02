@@ -37,6 +37,7 @@
     "webpack-extension-manifest-plugin": "^0.8.0"
   },
   "dependencies": {
-    "@polygon.io/client-js": "^7.3.2"
+    "@polygon.io/client-js": "^7.3.2",
+    "axios": "^1.7.2"
   }
 }
