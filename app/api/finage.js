@@ -7,7 +7,7 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-export const getPairs = async () => {
+export const getAggregated = async () => {
   const symbol = 'EURUSD';
   const multiply = '1';
   const time = 'minute'; // minute, hour, day, week, month, quarter, year
@@ -33,4 +33,33 @@ export const getPairs = async () => {
   }
 
   return response.data.results;
+};
+
+export const getTicks = async () => {
+  const symbol = 'EURUSD';
+  const date = '2024-06-03';
+  const limit = 20; // Maximum allowed limit is 20 for free API subscriptions.
+
+  const apiUrl = `history/ticks/forex/${symbol}/${date}`;
+
+  const response = await axios.get(apiUrl, {
+    baseURL,
+    headers,
+    params: {
+      apikey: apiKey,
+      limit,
+    },
+  });
+
+  console.log('Response:', response);
+
+  if (response.status !== 200 || !response.data) {
+    return [];
+  }
+
+  return response.data.ticks;
+};
+
+export const getPairs = async () => {
+  return getAggregated();
 };
