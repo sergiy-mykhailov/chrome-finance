@@ -1,4 +1,4 @@
-# chrome-finance
+# Chrome extension + tests of various market data APIs
 
 ## Installation
 
